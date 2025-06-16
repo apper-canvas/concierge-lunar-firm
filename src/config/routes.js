@@ -3,6 +3,7 @@ import Services from '@/components/pages/Services';
 import Dining from '@/components/pages/Dining';
 import LocalGuide from '@/components/pages/LocalGuide';
 import MyRequests from '@/components/pages/MyRequests';
+import AIConcierge from '@/components/pages/AIConcierge';
 import Contact from '@/components/pages/Contact';
 
 export const routes = {
@@ -40,6 +41,20 @@ export const routes = {
     path: '/my-requests',
     icon: 'Clock',
     component: MyRequests
+  },
+aiConcierge: {
+    id: 'aiConcierge',
+    label: 'AI Concierge',
+    path: '/ai-concierge',
+    icon: 'Bot',
+    component: AIConcierge
+  },
+aiConcierge: {
+    id: 'aiConcierge',
+    label: 'AI Concierge',
+    path: '/ai-concierge',
+    icon: 'Bot',
+    component: Contact
   },
   contact: {
     id: 'contact',

@@ -97,10 +97,10 @@ const Layout = () => {
         </main>
       </div>
 
-      {/* Mobile Bottom Navigation */}
+{/* Mobile Bottom Navigation */}
       <nav className="md:hidden flex-shrink-0 bg-white border-t border-gray-200 z-40">
-        <div className="grid grid-cols-5 gap-1 px-2 py-1">
-          {Object.values(routes).slice(0, 5).map((route) => (
+        <div className="grid grid-cols-6 gap-1 px-2 py-1">
+          {Object.values(routes).slice(0, 6).map((route) => (
             <NavLink
               key={route.id}
               to={route.path}

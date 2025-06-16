@@ -36,10 +36,10 @@ const Dashboard = () => {
       description: 'Technical support and repairs',
       icon: 'Wrench'
     },
-    {
-      name: 'Concierge',
-      description: 'Reservations and recommendations',
-      icon: 'Bell'
+{
+      name: 'AI Concierge',
+      description: '24/7 AI assistant for instant help',
+      icon: 'Bot'
     }
   ];
 
@@ -55,6 +55,12 @@ const Dashboard = () => {
       icon: 'UtensilsCrossed',
       action: () => navigate('/dining'),
       color: 'accent'
+},
+    {
+      label: 'AI Chat',
+      icon: 'Bot',
+      action: () => navigate('/ai-concierge'),
+      color: 'info'
     },
     {
       label: 'Local Guide',

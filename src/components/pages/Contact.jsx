@@ -25,14 +25,15 @@ const Contact = () => {
       icon: 'Phone',
       color: 'primary'
     },
-    {
-      title: 'Concierge',
-      description: 'Restaurant reservations, event tickets, and local recommendations',
+{
+      title: 'AI Concierge',
+      description: '24/7 AI-powered assistance for reservations, recommendations, and personalized service',
       phone: '+1 (555) 123-4568',
       email: 'concierge@hotel.com',
-      hours: '6 AM - 10 PM',
-      icon: 'Bell',
-      color: 'secondary'
+      hours: '24/7',
+      icon: 'Bot',
+      color: 'secondary',
+      aiEnabled: true
     },
     {
       title: 'Room Service',
@@ -160,10 +161,15 @@ const Contact = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
               >
-                <Card className="h-full hover:shadow-lg transition-shadow duration-200">
+<Card className="h-full hover:shadow-lg transition-shadow duration-200">
                   <div className="flex items-start space-x-4">
-                    <div className={`w-12 h-12 rounded-lg bg-gradient-to-br from-${contact.color}-400 to-${contact.color}-600 flex items-center justify-center flex-shrink-0`}>
+                    <div className={`w-12 h-12 rounded-lg bg-gradient-to-br from-${contact.color}-400 to-${contact.color}-600 flex items-center justify-center flex-shrink-0 relative`}>
                       <ApperIcon name={contact.icon} className="w-6 h-6 text-white" />
+                      {contact.aiEnabled && (
+                        <div className="absolute -top-1 -right-1 w-5 h-5 bg-accent-500 rounded-full flex items-center justify-center">
+                          <ApperIcon name="Sparkles" className="w-3 h-3 text-white" />
+                        </div>
+                      )}
                     </div>
                     
                     <div className="flex-1 min-w-0">

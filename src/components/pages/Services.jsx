@@ -1,15 +1,15 @@
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { toast } from 'react-toastify';
-import ApperIcon from '@/components/ApperIcon';
-import Card from '@/components/atoms/Card';
-import Button from '@/components/atoms/Button';
-import SkeletonLoader from '@/components/atoms/SkeletonLoader';
-import ErrorState from '@/components/atoms/ErrorState';
-import EmptyState from '@/components/atoms/EmptyState';
-import ServiceCard from '@/components/molecules/ServiceCard';
-import ServiceRequestForm from '@/components/organisms/ServiceRequestForm';
-import { serviceRequestService } from '@/services';
+import React, { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { toast } from "react-toastify";
+import ApperIcon from "@/components/ApperIcon";
+import Card from "@/components/atoms/Card";
+import Button from "@/components/atoms/Button";
+import SkeletonLoader from "@/components/atoms/SkeletonLoader";
+import ErrorState from "@/components/atoms/ErrorState";
+import EmptyState from "@/components/atoms/EmptyState";
+import ServiceCard from "@/components/molecules/ServiceCard";
+import ServiceRequestForm from "@/components/organisms/ServiceRequestForm";
+import { serviceRequestService } from "@/services";
 
 const Services = () => {
   const [requests, setRequests] = useState([]);
@@ -38,11 +38,12 @@ const Services = () => {
       icon: 'Wrench',
       color: 'warning'
     },
-    {
-      name: 'Concierge',
-      description: 'Reservations, recommendations, and local assistance',
-      icon: 'Bell',
-      color: 'secondary'
+{
+      name: 'AI Concierge',
+      description: '24/7 AI-powered concierge for instant reservations and personalized recommendations',
+      icon: 'Bot',
+      color: 'secondary',
+      aiEnabled: true
     },
     {
       name: 'Transportation',
@@ -62,8 +63,8 @@ const Services = () => {
     { id: 'all', label: 'All Services' },
     { id: 'Housekeeping', label: 'Housekeeping' },
     { id: 'Room Service', label: 'Room Service' },
-    { id: 'Maintenance', label: 'Maintenance' },
-    { id: 'Concierge', label: 'Concierge' },
+{ id: 'Maintenance', label: 'Maintenance' },
+    { id: 'AI Concierge', label: 'AI Concierge' },
     { id: 'Transportation', label: 'Transportation' },
     { id: 'Spa', label: 'Spa' }
   ];
@@ -126,98 +127,85 @@ const Services = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      {/* Header */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="mb-8"
-      >
+    {/* Header */}
+    <motion.div
+        initial={{
+            opacity: 0,
+            y: 20
+        }}
+        animate={{
+            opacity: 1,
+            y: 0
+        }}
+        className="mb-8">
         <div className="flex items-center justify-between mb-6">
-          <div>
-            <h1 className="text-3xl font-display font-bold text-gray-900 mb-2">
-              Hotel Services
-            </h1>
-            <p className="text-gray-600">
-              Request any service you need during your stay
-            </p>
-          </div>
-          
-          {getActiveRequests().length > 0 && (
-            <Card className="p-4 bg-primary-50 border-primary-200">
-              <div className="flex items-center space-x-2 text-primary-700">
-                <ApperIcon name="Clock" className="w-5 h-5" />
-                <span className="font-medium">
-                  {getActiveRequests().length} active request{getActiveRequests().length !== 1 ? 's' : ''}
-                </span>
-              </div>
-            </Card>
-          )}
+            <div>
+                <h1 className="text-3xl font-display font-bold text-gray-900 mb-2">Hotel Services
+                                </h1>
+                <p className="text-gray-600">Request any service you need during your stay
+                                </p>
+            </div>
+            {getActiveRequests().length > 0 && <Card className="p-4 bg-primary-50 border-primary-200">
+                <div className="flex items-center space-x-2 text-primary-700">
+                    <ApperIcon name="Clock" className="w-5 h-5" />
+                    <span className="font-medium">
+                        {getActiveRequests().length}active request{getActiveRequests().length !== 1 ? "s" : ""}
+                    </span>
+                </div>
+            </Card>}
         </div>
-
         {/* Category Filter */}
         <div className="flex space-x-2 overflow-x-auto pb-4 scrollbar-hide">
-          {categories.map((category) => (
-            <Button
-              key={category.id}
-              variant={selectedCategory === category.id ? 'primary' : 'outline'}
-              size="sm"
-              onClick={() => setSelectedCategory(category.id)}
-              className="whitespace-nowrap"
-            >
-              {category.label}
-            </Button>
-          ))}
+            {categories.map(category => <Button
+                key={category.id}
+                variant={selectedCategory === category.id ? "primary" : "outline"}
+                size="sm"
+                onClick={() => setSelectedCategory(category.id)}
+                className="whitespace-nowrap">
+                {category.label}
+            </Button>)}
         </div>
-      </motion.div>
-
-      {/* Service Categories Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    </motion.div>
+    {/* Service Categories Grid */}
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <AnimatePresence mode="wait">
-          {filteredServices.map((service, index) => (
-            <ServiceCard
-              key={service.name}
-              service={service}
-              onClick={() => handleServiceClick(service)}
-              delay={index * 0.1}
-            />
-          ))}
+            {filteredServices.map((service, index) => <ServiceCard
+                key={service.name}
+                service={service}
+                onClick={() => handleServiceClick(service)}
+                delay={index * 0.1} />)}
         </AnimatePresence>
-      </div>
-
-      {filteredServices.length === 0 && (
-        <EmptyState
-          title="No services found"
-          description="Try selecting a different category to see available services"
-          icon="Search"
-        />
-      )}
-
-      {/* Floating Action Button for Quick Request */}
-      <motion.div
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-        transition={{ delay: 0.5 }}
-        className="fixed bottom-8 right-8 z-40"
-      >
-        <Button
-          onClick={() => setShowRequestForm(true)}
-          variant="accent"
-          size="lg"
-          className="rounded-full shadow-floating w-16 h-16 p-0"
-        >
-          <ApperIcon name="Plus" className="w-6 h-6" />
-        </Button>
-      </motion.div>
-
-      {/* Service Request Form Modal */}
-      {showRequestForm && (
-        <ServiceRequestForm
-          selectedCategory={selectedService}
-          onClose={() => setShowRequestForm(false)}
-          onSuccess={handleRequestSuccess}
-        />
-      )}
     </div>
+    {filteredServices.length === 0 && <EmptyState
+        title="No services found"
+        description="Try selecting a different category to see available services"
+        icon="Search" />}
+    {/* Floating Action Button for Quick Request */}
+    <motion.div
+        initial={{
+            scale: 0
+        }}
+        animate={{
+            scale: 1
+        }}
+        transition={{
+            delay: 0.5
+        }}
+        className="fixed bottom-8 right-8 z-40">
+        <Button
+            onClick={() => setShowRequestForm(true)}
+            variant="accent"
+            size="lg"
+            className="rounded-full shadow-floating w-16 h-16 p-0">
+            <ApperIcon name="Plus" className="w-6 h-6" />
+        </Button>
+    </motion.div>
+    {/* Service Request Form Modal */}
+    {showRequestForm && <ServiceRequestForm
+        selectedCategory={selectedService}
+        onClose={() => setShowRequestForm(false)}
+        onSuccess={handleRequestSuccess} />}
+</div>
   );
 };
 

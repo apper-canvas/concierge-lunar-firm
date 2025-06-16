@@ -1,0 +1,70 @@
+{
+  "contextKeywords": {
+    "dining": ["restaurant", "reservation", "table", "dinner", "lunch", "breakfast", "food", "menu", "cuisine", "dining"],
+    "local": ["attraction", "activity", "sightseeing", "museum", "park", "tour", "local", "nearby", "visit", "explore"],
+    "spa": ["spa", "massage", "facial", "treatment", "wellness", "relaxation", "therapy", "appointment"],
+    "transportation": ["car", "taxi", "uber", "airport", "transport", "directions", "parking", "shuttle"],
+    "room_service": ["room service", "order", "delivery", "menu", "food to room", "in-room dining"],
+    "events": ["tickets", "show", "concert", "theater", "event", "performance", "entertainment"]
+  },
+  "responses": {
+    "dining": {
+      "general": [
+        "I'd be happy to help you with dining reservations! Our city has amazing restaurants. Are you looking for fine dining, casual meals, or something specific like Italian or Asian cuisine?",
+        "Great choice! I can help you find the perfect restaurant and make reservations. What type of cuisine are you in the mood for, and how many people will be dining?",
+        "I have access to all the best restaurants in the area. Are you looking for something romantic, family-friendly, or perhaps a business dinner setting?"
+      ],
+      "timeSpecific": {
+        "tonight": [
+          "For tonight, I can check availability at several excellent restaurants. Let me see what tables are available. What cuisine preference do you have?",
+          "Tonight's a great night to dine out! I can get you into some wonderful places. Are you flexible with time, or do you have a preferred dining hour?"
+        ],
+        "tomorrow": [
+          "Perfect! Tomorrow gives us more options. I can secure reservations at the city's top restaurants. What type of dining experience are you looking for?"
+        ]
+      }
+    },
+    "local": {
+      "general": [
+        "I'd love to help you explore the city! Are you interested in cultural attractions like museums and galleries, outdoor activities, or perhaps the local nightlife scene?",
+        "There's so much to see and do here! I can recommend everything from historic landmarks to trendy neighborhoods. What interests you most?",
+        "Let me be your local guide! Are you traveling with family, as a couple, or solo? This will help me suggest the perfect activities for you."
+      ]
+    },
+    "spa": {
+      "general": [
+        "Our spa services are wonderful for relaxation! We offer massages, facials, body treatments, and wellness packages. What type of treatment interests you?",
+        "I can help you book a rejuvenating spa experience. Are you looking for a specific treatment, or would you like me to recommend a package based on your needs?",
+        "The spa is perfect for unwinding. Do you prefer massages, skincare treatments, or perhaps a full wellness package?"
+      ]
+    },
+    "transportation": {
+      "general": [
+        "I can arrange all your transportation needs! Do you need airport transfers, local car service, or directions to specific locations?",
+        "Happy to help with transportation! Are you looking for a one-time ride, ongoing car service, or just need directions somewhere?",
+        "I can coordinate your travel arrangements. What's your destination, and do you have a preferred type of transportation?"
+      ]
+    },
+    "room_service": {
+      "general": [
+        "Our room service menu has delicious options available until 11 PM. Are you looking for a full meal, snacks, or beverages?",
+        "I can help you order room service right to your door! What are you in the mood for - breakfast, lunch, dinner, or perhaps some late-night snacks?",
+        "Room service is available now! Would you like me to go through our menu options, or do you have something specific in mind?"
+      ]
+    },
+    "events": {
+      "general": [
+        "I can help you find and book tickets for local events! Are you interested in concerts, theater shows, sports events, or cultural performances?",
+        "There are always exciting events happening in the city. What type of entertainment are you looking for - music, theater, sports, or art?",
+        "Let me check what's happening during your stay! Do you prefer live music, theatrical performances, or perhaps special cultural events?"
+      ]
+    },
+    "general": [
+      "I'm here to help make your stay exceptional! I can assist with restaurant reservations, local recommendations, spa appointments, transportation, room service, and event tickets. What would you like help with?",
+      "Welcome! As your AI Concierge, I'm available 24/7 to help with anything you need. From dining and entertainment to local attractions and hotel services - just let me know how I can assist you!",
+      "I'm ready to help you with all aspects of your stay. Whether you need reservations, recommendations, or arrangements, I'm here to make it happen. What can I do for you today?",
+      "Hello! I specialize in making your stay memorable. I can help with dining, local activities, spa services, transportation, and more. What interests you most right now?"
+    ]
+  },
+  "conversationHistory": []
+}
