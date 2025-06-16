@@ -69,29 +69,28 @@ const RecommendationCard = ({ recommendation, onClick, delay = 0 }) => {
                 <ApperIcon name="MapPin" className="w-4 h-4 mr-1" />
                 <span>{formatDistance(recommendation.distance)} away</span>
               </div>
-              
-              <div className="flex items-center space-x-2">
-                {recommendation.contact?.phone && (
+<div className="flex items-center space-x-2">
+                {recommendation.contact_phone && (
                   <motion.button
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                     className="p-2 text-primary-600 hover:bg-primary-50 rounded-lg transition-colors duration-200"
                     onClick={(e) => {
                       e.stopPropagation();
-                      window.open(`tel:${recommendation.contact.phone}`);
+                      window.open(`tel:${recommendation.contact_phone}`);
                     }}
                   >
                     <ApperIcon name="Phone" className="w-4 h-4" />
                   </motion.button>
                 )}
-                {recommendation.contact?.website && (
+                {recommendation.contact_website && (
                   <motion.button
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                     className="p-2 text-primary-600 hover:bg-primary-50 rounded-lg transition-colors duration-200"
                     onClick={(e) => {
                       e.stopPropagation();
-                      window.open(recommendation.contact.website, '_blank');
+                      window.open(recommendation.contact_website, '_blank');
                     }}
                   >
                     <ApperIcon name="ExternalLink" className="w-4 h-4" />

@@ -49,13 +49,6 @@ aiConcierge: {
     icon: 'Bot',
     component: AIConcierge
   },
-aiConcierge: {
-    id: 'aiConcierge',
-    label: 'AI Concierge',
-    path: '/ai-concierge',
-    icon: 'Bot',
-    component: Contact
-  },
   contact: {
     id: 'contact',
     label: 'Contact',

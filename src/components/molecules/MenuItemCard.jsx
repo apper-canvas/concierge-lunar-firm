@@ -56,11 +56,14 @@ const MenuItemCard = ({ menuItem, onAddToCart, delay = 0 }) => {
             {menuItem.description}
           </p>
           
-          {menuItem.customizations && menuItem.customizations.length > 0 && (
+{menuItem.customizations && (
             <div className="mb-4">
               <h4 className="text-sm font-medium text-gray-700 mb-2">Customizations:</h4>
               <div className="space-y-2">
-                {menuItem.customizations.map((customization, index) => (
+                {(typeof menuItem.customizations === 'string' 
+                  ? menuItem.customizations.split(',').map(c => c.trim())
+                  : menuItem.customizations
+                ).map((customization, index) => (
                   <motion.label
                     key={index}
                     whileHover={{ scale: 1.02 }}

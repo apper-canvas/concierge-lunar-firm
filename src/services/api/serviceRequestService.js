@@ -1,54 +1,177 @@
-import serviceRequestData from '../mockData/serviceRequest.json';
-
-const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
-
-let data = [...serviceRequestData];
-
 const serviceRequestService = {
   async getAll() {
-    await delay(300);
-    return [...data];
+    try {
+      const { ApperClient } = window.ApperSDK;
+      const apperClient = new ApperClient({
+        apperProjectId: import.meta.env.VITE_APPER_PROJECT_ID,
+        apperPublicKey: import.meta.env.VITE_APPER_PUBLIC_KEY
+      });
+      
+      const params = {
+        Fields: ['Name', 'category', 'description', 'urgency', 'status', 'timestamp', 'room', 'CreatedOn', 'CreatedBy', 'ModifiedOn', 'ModifiedBy']
+      };
+      
+      const response = await apperClient.fetchRecords('service_request', params);
+      
+      if (!response.success) {
+        throw new Error(response.message);
+      }
+      
+      return response.data || [];
+    } catch (error) {
+      console.error("Error fetching service requests:", error);
+      throw error;
+    }
   },
 
   async getById(id) {
-    await delay(200);
-    const item = data.find(item => item.id === id);
-    if (!item) {
-      throw new Error('Service request not found');
+    try {
+      const { ApperClient } = window.ApperSDK;
+      const apperClient = new ApperClient({
+        apperProjectId: import.meta.env.VITE_APPER_PROJECT_ID,
+        apperPublicKey: import.meta.env.VITE_APPER_PUBLIC_KEY
+      });
+      
+      const params = {
+        fields: ['Name', 'category', 'description', 'urgency', 'status', 'timestamp', 'room', 'CreatedOn', 'CreatedBy', 'ModifiedOn', 'ModifiedBy']
+      };
+      
+      const response = await apperClient.getRecordById('service_request', parseInt(id), params);
+      
+      if (!response.success) {
+        throw new Error(response.message);
+      }
+      
+      return response.data;
+    } catch (error) {
+      console.error(`Error fetching service request with ID ${id}:`, error);
+      throw error;
     }
-    return { ...item };
   },
 
   async create(serviceRequest) {
-    await delay(400);
-    const newServiceRequest = {
-      ...serviceRequest,
-      id: Date.now().toString(),
-      timestamp: new Date().toISOString(),
-      status: 'pending'
-    };
-    data.unshift(newServiceRequest);
-    return { ...newServiceRequest };
+    try {
+      const { ApperClient } = window.ApperSDK;
+      const apperClient = new ApperClient({
+        apperProjectId: import.meta.env.VITE_APPER_PROJECT_ID,
+        apperPublicKey: import.meta.env.VITE_APPER_PUBLIC_KEY
+      });
+      
+      const params = {
+        records: [{
+          Name: serviceRequest.Name || serviceRequest.category,
+          category: serviceRequest.category,
+          description: serviceRequest.description,
+          urgency: Boolean(serviceRequest.urgency),
+          status: serviceRequest.status || 'pending',
+          timestamp: serviceRequest.timestamp || new Date().toISOString(),
+          room: serviceRequest.room
+        }]
+      };
+      
+      const response = await apperClient.createRecord('service_request', params);
+      
+      if (!response.success) {
+        throw new Error(response.message);
+      }
+      
+      if (response.results) {
+        const successfulRecords = response.results.filter(result => result.success);
+        const failedRecords = response.results.filter(result => !result.success);
+        
+        if (failedRecords.length > 0) {
+          console.error(`Failed to create ${failedRecords.length} records:${JSON.stringify(failedRecords)}`);
+        }
+        
+        return successfulRecords.length > 0 ? successfulRecords[0].data : null;
+      }
+    } catch (error) {
+      console.error("Error creating service request:", error);
+      throw error;
+    }
   },
 
   async update(id, updates) {
-    await delay(300);
-    const index = data.findIndex(item => item.id === id);
-    if (index === -1) {
-      throw new Error('Service request not found');
+    try {
+      const { ApperClient } = window.ApperSDK;
+      const apperClient = new ApperClient({
+        apperProjectId: import.meta.env.VITE_APPER_PROJECT_ID,
+        apperPublicKey: import.meta.env.VITE_APPER_PUBLIC_KEY
+      });
+      
+      const updateData = {
+        Id: parseInt(id)
+      };
+      
+      // Only include updateable fields
+      if (updates.Name !== undefined) updateData.Name = updates.Name;
+      if (updates.category !== undefined) updateData.category = updates.category;
+      if (updates.description !== undefined) updateData.description = updates.description;
+      if (updates.urgency !== undefined) updateData.urgency = Boolean(updates.urgency);
+      if (updates.status !== undefined) updateData.status = updates.status;
+      if (updates.timestamp !== undefined) updateData.timestamp = updates.timestamp;
+      if (updates.room !== undefined) updateData.room = updates.room;
+      
+      const params = {
+        records: [updateData]
+      };
+      
+      const response = await apperClient.updateRecord('service_request', params);
+      
+      if (!response.success) {
+        throw new Error(response.message);
+      }
+      
+      if (response.results) {
+        const successfulUpdates = response.results.filter(result => result.success);
+        const failedUpdates = response.results.filter(result => !result.success);
+        
+        if (failedUpdates.length > 0) {
+          console.error(`Failed to update ${failedUpdates.length} records:${JSON.stringify(failedUpdates)}`);
+        }
+        
+        return successfulUpdates.length > 0 ? successfulUpdates[0].data : null;
+      }
+    } catch (error) {
+      console.error("Error updating service request:", error);
+      throw error;
     }
-    data[index] = { ...data[index], ...updates };
-    return { ...data[index] };
   },
 
   async delete(id) {
-    await delay(250);
-    const index = data.findIndex(item => item.id === id);
-    if (index === -1) {
-      throw new Error('Service request not found');
+    try {
+      const { ApperClient } = window.ApperSDK;
+      const apperClient = new ApperClient({
+        apperProjectId: import.meta.env.VITE_APPER_PROJECT_ID,
+        apperPublicKey: import.meta.env.VITE_APPER_PUBLIC_KEY
+      });
+      
+      const params = {
+        RecordIds: [parseInt(id)]
+      };
+      
+      const response = await apperClient.deleteRecord('service_request', params);
+      
+      if (!response.success) {
+        throw new Error(response.message);
+      }
+      
+      if (response.results) {
+        const successfulDeletions = response.results.filter(result => result.success);
+        const failedDeletions = response.results.filter(result => !result.success);
+        
+        if (failedDeletions.length > 0) {
+          console.error(`Failed to delete ${failedDeletions.length} records:${JSON.stringify(failedDeletions)}`);
+        }
+        
+        return successfulDeletions.length > 0;
+      }
+      
+      return true;
+    } catch (error) {
+      console.error("Error deleting service request:", error);
+      throw error;
     }
-    data.splice(index, 1);
-    return { success: true };
   }
 };
 
