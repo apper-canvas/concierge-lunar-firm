@@ -1,0 +1,47 @@
+[
+  {
+    "id": "1",
+    "category": "Housekeeping",
+    "description": "Request for extra towels and pillows",
+    "urgency": false,
+    "status": "completed",
+    "timestamp": "2024-01-15T10:30:00Z",
+    "room": "1247"
+  },
+  {
+    "id": "2",
+    "category": "Room Service",
+    "description": "Continental breakfast for 2 people",
+    "urgency": false,
+    "status": "in-progress",
+    "timestamp": "2024-01-15T08:45:00Z",
+    "room": "1247"
+  },
+  {
+    "id": "3",
+    "category": "Maintenance",
+    "description": "Air conditioning not working properly",
+    "urgency": true,
+    "status": "pending",
+    "timestamp": "2024-01-15T14:20:00Z",
+    "room": "1247"
+  },
+  {
+    "id": "4",
+    "category": "Concierge",
+    "description": "Restaurant reservation for tonight at 7 PM",
+    "urgency": false,
+    "status": "completed",
+    "timestamp": "2024-01-14T16:15:00Z",
+    "room": "1247"
+  },
+  {
+    "id": "5",
+    "category": "Housekeeping",
+    "description": "Late checkout request until 2 PM",
+    "urgency": false,
+    "status": "completed",
+    "timestamp": "2024-01-14T09:00:00Z",
+    "room": "1247"
+  }
+]

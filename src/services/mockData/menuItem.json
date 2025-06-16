@@ -1,0 +1,47 @@
+[
+  {
+    "id": "1",
+    "name": "Classic Eggs Benedict",
+    "category": "Breakfast",
+    "price": 18.00,
+    "description": "Poached eggs on English muffins with Canadian bacon and hollandaise sauce, served with breakfast potatoes",
+    "image": "https://images.unsplash.com/photo-1608039829572-78524f79c4c7?w=400&h=300&fit=crop",
+    "customizations": ["Extra hollandaise", "Substitute avocado", "Gluten-free muffin"]
+  },
+  {
+    "id": "2",
+    "name": "Grilled Salmon",
+    "category": "Main Course",
+    "price": 32.00,
+    "description": "Atlantic salmon with lemon herb butter, seasonal vegetables, and wild rice pilaf",
+    "image": "https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=400&h=300&fit=crop",
+    "customizations": ["Extra vegetables", "Substitute quinoa", "No butter"]
+  },
+  {
+    "id": "3",
+    "name": "Truffle Mac & Cheese",
+    "category": "Sides",
+    "price": 16.00,
+    "description": "Creamy three-cheese sauce with truffle oil and crispy breadcrumbs",
+    "image": "https://images.unsplash.com/photo-1543826173-1ad4b4f3f675?w=400&h=300&fit=crop",
+    "customizations": ["Extra truffle", "Add bacon", "Gluten-free pasta"]
+  },
+  {
+    "id": "4",
+    "name": "Chocolate Decadence Cake",
+    "category": "Dessert",
+    "price": 12.00,
+    "description": "Rich chocolate cake with dark chocolate ganache and fresh berries",
+    "image": "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=300&fit=crop",
+    "customizations": ["Extra berries", "Vanilla ice cream", "Sugar-free option"]
+  },
+  {
+    "id": "5",
+    "name": "Artisan Flatbread",
+    "category": "Appetizer",
+    "price": 14.00,
+    "description": "Wood-fired flatbread with prosciutto, arugula, and fig jam",
+    "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400&h=300&fit=crop",
+    "customizations": ["Extra prosciutto", "Vegetarian option", "Gluten-free crust"]
+  }
+]

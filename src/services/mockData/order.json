@@ -1,0 +1,41 @@
+[
+  {
+    "id": "1",
+    "items": [
+      {
+        "id": "1",
+        "name": "Classic Eggs Benedict",
+        "quantity": 2,
+        "price": 18.00,
+        "customizations": ["Extra hollandaise"]
+      },
+      {
+        "id": "4",
+        "name": "Chocolate Decadence Cake",
+        "quantity": 1,
+        "price": 12.00,
+        "customizations": ["Vanilla ice cream"]
+      }
+    ],
+    "total": 48.00,
+    "deliveryTime": "2024-01-15T09:30:00Z",
+    "specialInstructions": "Please knock softly, baby sleeping",
+    "status": "delivered"
+  },
+  {
+    "id": "2",
+    "items": [
+      {
+        "id": "2",
+        "name": "Grilled Salmon",
+        "quantity": 1,
+        "price": 32.00,
+        "customizations": ["Extra vegetables"]
+      }
+    ],
+    "total": 32.00,
+    "deliveryTime": "2024-01-15T19:45:00Z",
+    "specialInstructions": "",
+    "status": "preparing"
+  }
+]

@@ -1,0 +1,67 @@
+[
+  {
+    "id": "1",
+    "name": "The Rooftop Grill",
+    "type": "Restaurant",
+    "distance": 0.3,
+    "rating": 4.8,
+    "description": "Upscale steakhouse with panoramic city views and craft cocktails. Perfect for special occasions.",
+    "image": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=400&h=300&fit=crop",
+    "contact": {
+      "phone": "+1 (555) 123-4567",
+      "website": "www.rooftopgrill.com"
+    }
+  },
+  {
+    "id": "2",
+    "name": "Metropolitan Art Museum",
+    "type": "Attraction",
+    "distance": 0.8,
+    "rating": 4.9,
+    "description": "World-class art collection spanning 5,000 years of history. Must-see exhibitions and guided tours available.",
+    "image": "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=400&h=300&fit=crop",
+    "contact": {
+      "phone": "+1 (555) 987-6543",
+      "website": "www.metmuseum.org"
+    }
+  },
+  {
+    "id": "3",
+    "name": "Central Park",
+    "type": "Park",
+    "distance": 0.5,
+    "rating": 4.7,
+    "description": "Iconic urban oasis with walking paths, boat rentals, and seasonal activities. Great for morning jogs or picnics.",
+    "image": "https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?w=400&h=300&fit=crop",
+    "contact": {
+      "phone": "+1 (555) 246-8135",
+      "website": "www.centralparknyc.org"
+    }
+  },
+  {
+    "id": "4",
+    "name": "Blue Note Jazz Club",
+    "type": "Entertainment",
+    "distance": 1.2,
+    "rating": 4.6,
+    "description": "Legendary jazz venue featuring world-renowned musicians nightly. Intimate setting with excellent acoustics.",
+    "image": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=300&fit=crop",
+    "contact": {
+      "phone": "+1 (555) 369-2580",
+      "website": "www.bluenotejazz.com"
+    }
+  },
+  {
+    "id": "5",
+    "name": "Artisan Coffee Roasters",
+    "type": "Cafe",
+    "distance": 0.2,
+    "rating": 4.5,
+    "description": "Local favorite serving single-origin coffees and fresh pastries. Perfect spot for morning meetings or quiet work.",
+    "image": "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=400&h=300&fit=crop",
+    "contact": {
+      "phone": "+1 (555) 147-2589",
+      "website": "www.artisancoffee.com"
+    }
+  }
+]
